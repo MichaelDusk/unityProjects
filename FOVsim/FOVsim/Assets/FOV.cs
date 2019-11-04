@@ -95,6 +95,7 @@ public class FOV : MonoBehaviour
     {
         Vector3 dir = DirFromAngle(globalAngle, true);
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2(dir.x, dir.y), viewRadius, obstacleMask);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), hit.point - new Vector2(transform.position.x, transform.position.y), Color.black);
         if (hit)
         {
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
